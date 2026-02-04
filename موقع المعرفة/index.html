@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نادي المعرفة العلمي التقني</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Device Selection Overlay -->
+    <div id="device-overlay" class="device-overlay">
+        <div class="device-selection-container glass">
+            <h2>Select Your View<br>اختر نمط العرض</h2>
+            <div class="device-options">
+                <div class="device-card" onclick="selectDevice('mobile')">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Phone</h3>
+                    <p>هاتف</p>
+                </div>
+                <div class="device-card" onclick="selectDevice('desktop')">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Computer</h3>
+                    <p>حاسوب</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo-icon.png" alt="شعار نادي المعرفة" onerror="this.style.display='none';">
+                <h1>نادي المعرفة</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" id="nav-home">الرئيسية</a></li>
+                <li><a href="#about" id="nav-about">عن النادي</a></li>
+                <li><a href="#objectives" id="nav-objectives">الأهداف</a></li>
+                <li><a href="#activities" id="nav-activities">الأنشطة</a></li>
+                <li><a href="#team" id="nav-team">الفريق</a></li>
+                <li><a href="#rules" id="nav-rules">القواعد</a></li>
+                <li><a href="#membership" id="nav-membership">الانضمام</a></li>
+            </ul>
+
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <!-- Settings Menu -->
+            <div class="settings-container">
+                <button class="settings-fab" id="settingsToggle" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div class="settings-menu" id="settingsMenu">
+                    <div class="settings-item" id="langSwitch">
+                        <i class="fas fa-globe"></i>
+                        <span>Language / اللغة</span>
+                        <div class="toggle-status">EN</div>
+                    </div>
+                    <div class="settings-item" id="soundSwitch">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Sound / الصوت</span>
+                        <div class="toggle-status">ON</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Language toggle removed, moved to settings -->
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 id="hero-welcome">أهلاً بكم في</h2>
+                <h1 class="glow-text" id="hero-title">نادي المعرفة العلمي التقني</h1>
+                <p id="hero-subtitle">حيث يتلاقى العلم والموهبة لبناء مستقبل مشرق</p>
+                <a href="#about" class="btn btn-primary" id="hero-cta">اكتشف المزيد</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/logo-vertical.png" alt="شعار النادي الكبير"
+                    onerror="this.src='https://via.placeholder.com/400x400/3b82f6/ffffff?text=Al-Mareifih+Club'">
+            </div>
+        </div>
+        <div class="waves">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="about-title">من نحن</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-grid">
+                <div class="card glass">
+                    <i class="fas fa-id-card-alt icon"></i>
+                    <h3 id="about-card1-title">التعريف</h3>
+                    <p id="about-card1-text">نادي المعرفة هو حاضنة علمية تقنية تهدف إلى صقل المواهب وتوجيه الشغف نحو
+                        الإبداع والابتكار.</p>
+                </div>
+                <div class="card glass">
+                    <i class="fas fa-school icon"></i>
+                    <h3 id="about-card2-title">إشراف</h3>
+                    <p id="about-card2-text">مدارس المعرفة الأهلية – مكة المكرمة</p>
+                </div>
+                <div class="card glass">
+                    <i class="fas fa-users icon"></i>
+                    <h3 id="about-card3-title">الفئة المستهدفة</h3>
+                    <p id="about-card3-text">طلاب المراحل: الابتدائي، المتوسط، والثانوي</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section id="objectives" class="section objectives">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="objectives-title">أهداف النادي</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="objectives-grid">
+                <div class="obj-card">
+                    <div class="circle-icon"><i class="fas fa-atom"></i></div>
+                    <h3 id="objectives-card1-title">تنمية حب العلم</h3>
+                    <p id="objectives-card1-text">غرس شغف المعرفة والتقنية في نفوس الطلاب.</p>
+                </div>
+                <div class="obj-card">
+                    <div class="circle-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 id="objectives-card2-title">المشاركات التنافسية</h3>
+                    <p id="objectives-card2-text">المشاركة في الهاكاثونات، المسابقات العلمية، والأولمبيادات المحلية
+                        والدولية.</p>
+                </div>
+                <div class="obj-card">
+                    <div class="circle-icon"><i class="fas fa-user-friends"></i></div>
+                    <h3 id="objectives-card3-title">تعزيز مهارات الفريق</h3>
+                    <p id="objectives-card3-text">تطوير العمل الجماعي وروح التعاون البناء.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section team">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="team-title">الطاقم الإداري</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="team-grid">
+                <!-- Manager -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 id="team-member1-name">حسين عبدالله المانع</h3> <!-- Updated ID -->
+                    <span id="team-member1-role">مدير النادي</span> <!-- Updated ID -->
+                </div>
+                <!-- Deputy Manager (New) -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 id="team-member2-name">نضال جميل سندي</h3>
+                    <span id="team-member2-role">نائب مدير النادي</span>
+                </div>
+                <!-- Recruitment (Moved/Renamed) -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 id="team-member3-name">احمد محمد نور</h3>
+                    <span id="team-member3-role">مسؤول الانضمام والمقابلات</span>
+                </div>
+                <!-- Events (Moved/Renamed) -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 id="team-member4-name">صهيب تركي ال احمد</h3>
+                    <span id="team-member4-role">مسؤول الفعاليات والمسابقات</span>
+                </div>
+                <!-- Discord (Moved/Renamed) -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 id="team-member5-name">تركي عصام الغامدي</h3>
+                    <span id="team-member5-role">مسؤول الديسكورد</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section (New Dedicated Section as per ID 4 in request) -->
+    <section id="membership" class="section membership">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="membership-title">العضوية</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="membership-info glass">
+                <ul class="membership-list">
+                    <li id="membership-item1">العضوية متاحة لطلاب مدارس المعرفة.</li>
+                    <li id="membership-item2">يشترط الالتزام بالقواعد.</li>
+                </ul>
+                <div style="text-align: center; margin-top: 25px;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdegK-1RH47g3Aar1lDCW3ile3rc770aSBbZFyFyKZWDfkwbQ/viewform?usp=dialog"
+                        target="_blank" class="btn btn-primary pulse-btn" id="btn-register">
+                        سجل الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="section activities">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="activities-title">الأنشطة</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="activities-container">
+                <div class="activity-box">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                        alt="ورش برمجية">
+                    <div class="content">
+                        <h3 id="activities-card1-title">ورش بحثية وبرمجية</h3>
+                    </div>
+                </div>
+                <div class="activity-box">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+                        alt="مسابقات">
+                    <div class="content">
+                        <h3 id="activities-card2-title">مسابقات علمية وتقنية</h3>
+                    </div>
+                </div>
+                <div class="activity-box">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                        alt="لقاءات">
+                    <div class="content">
+                        <h3 id="activities-card3-title">لقاءات وأنشطة جماعية</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="section rules">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="rules-title">القواعد</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="rules-list">
+                <div class="rule-item" style="--i:1;">
+                    <span class="rule-num">1</span>
+                    <p id="rules-item1">الاحترام واجب للجميع.</p>
+                </div>
+                <div class="rule-item" style="--i:2;">
+                    <span class="rule-num">2</span>
+                    <p id="rules-item2">يمنع الإساءة أو التنمر.</p>
+                </div>
+                <div class="rule-item" style="--i:3;">
+                    <span class="rule-num">3</span>
+                    <p id="rules-item3">الالتزام بالتوجيهات و التعليمات.</p>
+                </div>
+                <div class="rule-item" style="--i:4;">
+                    <span class="rule-num">4</span>
+                    <p id="rules-item4">المشاركة الفعالة في النادي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section (New) -->
+    <section id="founders" class="section founders">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="founders-title">المؤسسين</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="founders-grid">
+                <div class="founder-card glass">
+                    <h3 id="founder1">حـسين المانــع</h3>
+                </div>
+                <div class="founder-card glass">
+                    <h3 id="founder2">صهيب ال احمد</h3>
+                </div>
+                <div class="founder-card glass">
+                    <h3 id="founder3">تـركي الغامدي</h3>
+                </div>
+                <div class="founder-card glass">
+                    <h3 id="founder4">احـــمــــد نـــور</h3>
+                </div>
+                <div class="founder-card glass">
+                    <h3 id="founder5">نضـال سنـــدي</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitions Section (New) -->
+    <section id="competitions" class="section competitions">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="competitions-title">رزنامة المسابقات</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="table-responsive glass">
+                <table class="competitions-table">
+                    <thead>
+                        <tr>
+                            <th id="th-competition">المسابقة</th>
+                            <th id="th-date">التاريخ</th>
+                            <th id="th-link">رابط المشاركة</th>
+                            <th id="th-field">المجال</th>
+                        </tr>
+                    </thead>
+                    <tbody id="competitions-body">
+                        <!-- Content will be injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2 id="footer-title">نادي المعرفة</h2>
+                    <p id="footer-subtitle">العلمي التقني</p>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">جميع الحقوق محفوظة &copy; 2026 نادي المعرفة - مدارس المعرفة الأهلية</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
