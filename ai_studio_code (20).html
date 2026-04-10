@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجموعة آفاق | Afaq Group Profile</title>
+    
+    <!-- خطوط دائرية وناعمة -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* المتغيرات (الألوان والانحناءات) */
+        :root {
+            --primary: #0f172a;      
+            --secondary: #0ea5e9;    
+            --accent: #f59e0b;       
+            --bg-body: #f8fafc;      
+            --bg-card: #ffffff;      
+            --text-main: #334155;
+            --text-muted: #64748b;
+            
+            /* الانحناءات (بدون زوايا حادة) */
+            --radius-lg: 30px;
+            --radius-md: 20px;
+            --radius-pill: 50px;
+            
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        html[dir="rtl"] body { font-family: 'Tajawal', sans-serif; }
+        html[dir="ltr"] body { font-family: 'Outfit', sans-serif; }
+
+        html[dir="rtl"] .en { display: none !important; }
+        html[dir="ltr"] .ar { display: none !important; }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* شريط تنقل عائم ودائري */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: var(--radius-pill);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            transition: var(--transition);
+        }
+
+        .logo img {
+            height: 45px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+            font-size: 1.05rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+            display: inline-block;
+        }
+
+        .lang-btn {
+            background: linear-gradient(135deg, var(--secondary), #3b82f6);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* الغلاف (Hero Section) */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float-slow 10s infinite alternate;
+        }
+
+        .hero-card {
+            background: var(--bg-card);
+            padding: 60px 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+            max-width: 900px;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* الشعار في الواجهة */
+        .hero-logo {
+            height: 110px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
+            animation: float-btn 4s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+            display: block;
+            font-size: 0.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        /* شارة صنع في السعودية */
+        .saudi-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(34, 197, 94, 0.1); /* لون أخضر خفيف جداً */
+            color: #166534; /* أخضر داكن */
+            padding: 10px 25px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            margin-bottom: 30px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            font-size: 1.1rem;
+        }
+
+        .saudi-flag {
+            width: 28px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* العناوين للأقسام */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: var(--radius-pill);
+        }
+
+        section { padding: 80px 0; }
+
+        /* البطاقات العامة */
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .vm-card {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.02);
+            z-index: 1;
+        }
+
+        .vm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .vm-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(14, 165, 233, 0.1);
+        }
+
+        .vm-card:hover::before { opacity: 1; }
+
+        .vm-card i {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            display: inline-block;
+            background: rgba(14, 165, 233, 0.1);
+            padding: 20px;
+            border-radius: var(--radius-md);
+        }
+
+        /* شبكة القيم */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .value-card {
+            background: var(--bg-card);
+            padding: 40px 20px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            border-bottom: 5px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-bottom-color: var(--secondary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--bg-body);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .value-card:hover .icon-wrapper {
+            background: var(--secondary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* نموذج العمل والمجالات */
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .model-item {
+            background: linear-gradient(135deg, var(--primary), #1e293b);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .model-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.3);
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .tag {
+            background: var(--bg-card);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* التوجه الاستراتيجي */
+        .strategy-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .strategy-item {
+            background: var(--bg-card);
+            padding: 20px 30px;
+            border-radius: var(--radius-pill);
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .strategy-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.1);
+            background: var(--secondary);
+            color: white;
+        }
+        
+        html[dir="ltr"] .strategy-item:hover {
+            transform: translateX(-10px);
+        }
+
+        .strategy-item:hover i { color: white; }
+
+        .strategy-item i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin: 0 20px;
+            transition: var(--transition);
+        }
+
+        /* الفوتر */
+        footer {
+            background: var(--bg-card);
+            padding: 40px 0;
+            text-align: center;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            margin-top: 50px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.02);
+        }
+
+        /* --- الأنيميشن التفاعلي للمرور والتمرير --- */
+        @keyframes float-slow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+
+        @keyframes float-btn {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .btn-float {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: var(--radius-pill);
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+            transition: var(--transition);
+        }
+
+        .btn-float:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 10px 15px; top: 10px; width: 95%; }
+            .nav-links { display: none; }
+            .hero-card { padding: 40px 20px; }
+            .hero-logo { height: 90px; }
+            .strategy-item { border-radius: var(--radius-md); flex-direction: column; text-align: center; padding: 20px; }
+            .strategy-item i { margin: 0 0 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل العائم -->
+    <nav>
+        <div class="logo">
+            <img src="https://i.ibb.co/bMyS0cH5/AF-G-L.png" alt="Afaq Group">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about" class="ar">التعريف</a><a href="#about" class="en">Overview</a></li>
+            <li><a href="#vision" class="ar">الرؤية والرسالة</a><a href="#vision" class="en">Vision & Mission</a></li>
+            <li><a href="#values" class="ar">القيم</a><a href="#values" class="en">Values</a></li>
+            <li><a href="#model" class="ar">النموذج</a><a href="#model" class="en">Model</a></li>
+        </ul>
+        <button class="lang-btn" onclick="toggleLanguage()">EN | English</button>
+    </nav>
+
+    <div class="profile-container">
+        
+        <!-- الغلاف (Hero) -->
+        <header class="hero">
+            <div class="hero-card reveal active">
+                
+                <!-- إضافة الشعار هنا -->
+                <img src="https://i.ibb.co/bMyS0cH5/AF-G-L.png" alt="شعار مجموعة آفاق" class="hero-logo">
+
+                <h1>
+                    <span class="ar">ملف التعريف</span>
+                    <span class="en">Profile</span>
+                    <div class="ar">مجموعة آفاق</div>
+                    <div class="en">Afaq Group</div>
+                </h1>
+                
+                <p class="ar">كيان وطني شبابي يعمل وفق نموذج مؤسسي متكامل، يهدف إلى تمكين الأفراد وصناعة الأثر المستدام من خلال منظومة مترابطة.</p>
+                <p class="en">A national youth-driven entity operating through an integrated institutional model designed to empower individuals and create sustainable impact.</p>
+                
+                <!-- شارة صنع في السعودية -->
+                <div class="saudi-badge">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" alt="علم السعودية" class="saudi-flag">
+                    <span class="ar">صُنِع في السعودية</span>
+                    <span class="en">Made in Saudi Arabia</span>
+                </div>
+
+                <a href="#vision" class="btn-float">
+                    <span class="ar"><i class="fa-solid fa-arrow-down" style="margin-left: 8px;"></i> استكشف الملف</span>
+                    <span class="en">Explore Profile <i class="fa-solid fa-arrow-down" style="margin-right: 8px;"></i></span>
+                </a>
+            </div>
+        </header>
+
+        <!-- الرؤية والرسالة -->
+        <section id="vision">
+            <div class="vm-grid">
+                <div class="vm-card reveal">
+                    <i class="fa-regular fa-eye"></i>
+                    <h3 class="ar" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;">الرؤيـة</h3>
+                    <h3 class="en" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;">Vision</h3>
+                    <p class="ar">أن تكون مجموعة آفاق نموذجًا وطنيًا رائدًا في تمكين الإنسان وصناعة الأثر المجتمعي المستدام.</p>
+                    <p class="en">To become a leading national model in human empowerment and sustainable societal impact.</p>
+                </div>
+                <div class="vm-card reveal" style="transition-delay: 0.2s;">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h3 class="ar" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;">الرسالـة</h3>
+                    <h3 class="en" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;">Mission</h3>
+                    <p class="ar">تمكين الطاقات الشابة، وتطوير المهارات، وبناء القيادات، من خلال برامج نوعية ومبادرات مبتكرة، ضمن منظومة تشغيلية احترافية تعزز الكفاءة والاستدامة.</p>
+                    <p class="en">To empower youth, develop capabilities, and build future leaders through high-quality programs and innovative initiatives within a professional ecosystem.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- القيم -->
+        <section id="values">
+            <div class="section-header reveal">
+                <h2 class="ar">منظومة القيم</h2>
+                <h2 class="en">Core Values</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal" style="transition-delay: 0.1s;">
+                    <div class="icon-wrapper"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3 class="ar">الأثر</h3><h3 class="en">Impact</h3>
+                    <p class="ar" style="font-size: 0.9rem; margin-top:10px;">نركز على النتائج القابلة للقياس وإحداث تغيير ملموس.</p>
+                    <p class="en" style="font-size: 0.9rem; margin-top:10px;">Focusing on measurable outcomes and sustainable change.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.2s;">
+                    <div class="icon-wrapper"><i class="fa-solid fa-heart"></i></div>
+                    <h3 class="ar">الانتماء</h3><h3 class="en">Belonging</h3>
+                    <p class="ar" style="font-size: 0.9rem; margin-top:10px;">نبني بيئة تعزز الولاء والمسؤولية لكل فرد.</p>
+                    <p class="en" style="font-size: 0.9rem; margin-top:10px;">Creating an environment of ownership and loyalty.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.3s;">
+                    <div class="icon-wrapper"><i class="fa-solid fa-gem"></i></div>
+                    <h3 class="ar">الجودة</h3><h3 class="en">Quality</h3>
+                    <p class="ar" style="font-size: 0.9rem; margin-top:10px;">نلتزم بمعايير عالية ونعتمد التحسين المستمر.</p>
+                    <p class="en" style="font-size: 0.9rem; margin-top:10px;">Committing to high standards and continuous improvement.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.4s;">
+                    <div class="icon-wrapper"><i class="fa-regular fa-lightbulb"></i></div>
+                    <h3 class="ar">الابتكار</h3><h3 class="en">Innovation</h3>
+                    <p class="ar" style="font-size: 0.9rem; margin-top:10px;">نشجع التفكير خارج الأطر ونحتضن الحلول الإبداعية.</p>
+                    <p class="en" style="font-size: 0.9rem; margin-top:10px;">Encouraging creative thinking and new solutions.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.5s;">
+                    <div class="icon-wrapper"><i class="fa-solid fa-people-arrows"></i></div>
+                    <h3 class="ar">التعاون</h3><h3 class="en">Collaboration</h3>
+                    <p class="ar" style="font-size: 0.9rem; margin-top:10px;">نعمل بروح الفريق لتعزيز التكامل بين الوحدات.</p>
+                    <p class="en" style="font-size: 0.9rem; margin-top:10px;">Promoting teamwork and integration across all units.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- نموذج العمل -->
+        <section id="model">
+            <div class="section-header reveal">
+                <h2 class="ar">الهيكل التشغيلي</h2>
+                <h2 class="en">Operating Model</h2>
+            </div>
+            
+            <div class="model-grid">
+                <div class="model-item reveal" style="transition-delay: 0.1s;">
+                    <i class="fa-solid fa-shapes" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3 class="ar">الأندية</h3><h3 class="en">Clubs</h3>
+                    <p class="ar">حاضنات للأنشطة والمجتمعات التخصصية.</p>
+                    <p class="en">Communities and activity hubs.</p>
+                </div>
+                <div class="model-item reveal" style="transition-delay: 0.2s;">
+                    <i class="fa-solid fa-building-columns" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3 class="ar">المراكز</h3><h3 class="en">Centers</h3>
+                    <p class="ar">جهات تمكين تقدم خدمات نوعية (مثل مركز الخدمات المشتركة).</p>
+                    <p class="en">Enablement bodies providing high-quality services.</p>
+                </div>
+                <div class="model-item reveal" style="transition-delay: 0.3s;">
+                    <i class="fa-solid fa-gears" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3 class="ar">الوحدات</h3><h3 class="en">Units</h3>
+                    <p class="ar">أذرع تنفيذية متخصصة تدير العمليات اليومية.</p>
+                    <p class="en">Specialized operational arms managing daily operations.</p>
+                </div>
+            </div>
+
+            <div class="tags-container reveal">
+                <span class="tag"><span class="ar">التطوير المعرفي</span><span class="en">Knowledge Development</span></span>
+                <span class="tag"><span class="ar">الإعلام</span><span class="en">Media</span></span>
+                <span class="tag"><span class="ar">التقنية</span><span class="en">Technology</span></span>
+                <span class="tag"><span class="ar">القيادة</span><span class="en">Leadership</span></span>
+                <span class="tag"><span class="ar">المبادرات المجتمعية</span><span class="en">Community Initiatives</span></span>
+                <span class="tag"><span class="ar">بناء القدرات</span><span class="en">Capacity Building</span></span>
+            </div>
+        </section>
+
+        <!-- التوجه الاستراتيجي -->
+        <section id="strategy">
+            <div class="section-header reveal">
+                <h2 class="ar">التوجه الاستراتيجي</h2>
+                <h2 class="en">Strategic Direction</h2>
+            </div>
+            
+            <div class="strategy-list">
+                <div class="strategy-item reveal">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h4 class="ar">بناء منظومة مستدامة قابلة للتوسع</h4>
+                    <h4 class="en">Building a scalable and sustainable ecosystem</h4>
+                </div>
+                <div class="strategy-item reveal">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h4 class="ar">رفع جودة المخرجات التشغيلية</h4>
+                    <h4 class="en">Enhancing operational quality</h4>
+                </div>
+                <div class="strategy-item reveal">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h4 class="ar">تعزيز الشراكات الاستراتيجية</h4>
+                    <h4 class="en">Establishing strategic partnerships</h4>
+                </div>
+                <div class="strategy-item reveal">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h4 class="ar">تمكين القيادات الشابة وإعداد الصف الثاني</h4>
+                    <h4 class="en">Empowering youth leadership and second-line leaders</h4>
+                </div>
+                <div class="strategy-item reveal">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h4 class="ar">التحول إلى مرجعية شبابية مؤثرة على المستوى الوطني</h4>
+                    <h4 class="en">Becoming a nationally recognized and influential youth entity</h4>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <img src="https://i.ibb.co/bMyS0cH5/AF-G-L.png" alt="Afaq Group" style="height: 60px; margin-bottom: 20px;">
+        <p class="ar" style="font-weight: 600; color: var(--text-muted); margin-bottom: 5px;">
+            © 2023 ملف التعريف – مجموعة آفاق
+        </p>
+        <p class="en" style="font-weight: 600; color: var(--text-muted); margin-bottom: 5px;">
+            © 2023 Profile – Afaq Group
+        </p>
+        
+        <p style="font-weight: 700; color: #166534; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg" alt="Saudi Arabia" style="width: 20px; border-radius: 2px;">
+            <span class="ar">صُنِع في السعودية</span>
+            <span class="en">Made in Saudi Arabia</span>
+        </p>
+    </footer>
+
+    <!-- سكربت التفاعل -->
+    <script>
+        function toggleLanguage() {
+            const htmlTag = document.documentElement;
+            const langBtn = document.querySelector('.lang-btn');
+            
+            if (htmlTag.getAttribute('dir') === 'rtl') {
+                htmlTag.setAttribute('dir', 'ltr');
+                htmlTag.setAttribute('lang', 'en');
+                langBtn.textContent = 'AR | العربية';
+            } else {
+                htmlTag.setAttribute('dir', 'rtl');
+                htmlTag.setAttribute('lang', 'ar');
+                langBtn.textContent = 'EN | English';
+            }
+        }
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>
